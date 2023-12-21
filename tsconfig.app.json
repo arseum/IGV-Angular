@@ -9,6 +9,7 @@
     "src/main.ts"
   ],
   "include": [
+    "src/igv.d.ts",
     "src/**/*.d.ts"
   ]
 }

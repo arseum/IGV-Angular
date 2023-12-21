@@ -1,13 +1,15 @@
-<mat-card>
-    <mat-form-field class="url-input">
-       <mat-label>Clearable input</mat-label>
-       <input matInput type="text" [(ngModel)]="trackUrl">
-       <button *ngIf="trackUrl" matSuffix mat-icon-button aria-label="Clear" (click)="trackUrl=''">
-          <mat-icon>close</mat-icon>
-       </button>
-    </mat-form-field>
-    <button mat-button color="accent" class="add-button" (click)="addTrackByUrl()">Add Track</button>
- </mat-card>
- <div style="margin-top: 20px">
-    <div #igvdiv></div>
- </div>
+<div id="app">
+    <mat-card>
+        <mat-form-field class="url-input">
+        <mat-label>Clearable input</mat-label>
+        <input matInput type="text">
+        <button *ngIf="trackUrl" matSuffix mat-icon-button aria-label="Clear" (click)="trackUrl=''">
+            <mat-icon>close</mat-icon>
+        </button>
+        </mat-form-field>
+        <button mat-button color="accent" class="add-button" (click)="addTrackByUrl()">Add Track</button>
+    </mat-card>
+    <div style="margin-top: 20px">
+        <div #igvdiv></div>
+    </div>
+</div>

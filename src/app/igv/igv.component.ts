@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy} from '@angular/core';
 import * as igv from 'igv';
 
 @Component({
@@ -7,9 +7,10 @@ import * as igv from 'igv';
    styleUrls: ['./igv.component.scss']
 })
 export class IgvComponent implements AfterViewInit, OnDestroy {
-   @ViewChild('igvdiv') igvDiv: ElementRef;
+
+   @ViewChild('igvdiv', { static: false }) igvDiv?: ElementRef;
    browser: any;
-   trackUrl = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig'
+   trackUrl : string = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig';
    options = {
       genome: "hg19"
    };
@@ -19,7 +20,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
    }
    async createBrowser() {
       try {
-         this.browser = await  igv.createBrowser(this.igvDiv.nativeElement, this.options)
+         this.browser = await  igv.createBrowser(this.igvDiv?.nativeElement, this.options)
       } catch(e) {
          console.log(e)
       }
